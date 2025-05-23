@@ -11,8 +11,6 @@ import logoLight from "../assets/images/logo-light.png";
 // import TwoColumnLayout from "./TwoColumnLayout";
 import { Container } from "reactstrap";
 import VerticalLayouts from "./VerticalLayouts";
-import TwoColumnLayout from "./TwoColumnLayout";
-import HorizontalLayout from "./HorizontalLayout";
 // import HorizontalLayout from "./HorizontalLayout";
 
 const Sidebar = ({ layoutType }) => {

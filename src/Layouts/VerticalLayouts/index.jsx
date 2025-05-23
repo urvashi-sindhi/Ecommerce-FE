@@ -7,4 +7,6 @@ const VerticalLayout = () => {
   return <React.Fragment></React.Fragment>;
 };
 
-export default withRouter(withTranslation()(VerticalLayout));
+const VerticalLayoutWithTranslation = withTranslation()(VerticalLayout);
+const VerticalLayoutWithRouter = withRouter(VerticalLayoutWithTranslation);
+export default VerticalLayoutWithRouter;

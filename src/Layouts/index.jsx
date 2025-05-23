@@ -58,7 +58,6 @@ const Layout = (props) => {
     leftsidbarSizeType,
     leftSidebarViewType,
     leftSidebarImageType,
-    preloader,
     sidebarVisibilitytype,
   } = useSelector(selectLayoutProperties);
 
@@ -162,4 +161,5 @@ Layout.propTypes = {
   children: PropTypes.object,
 };
 
-export default withRouter(Layout);
+const LayoutWithRouter = withRouter(Layout);
+export default LayoutWithRouter;

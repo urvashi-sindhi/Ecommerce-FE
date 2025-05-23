@@ -176,4 +176,5 @@ const Login = () => {
   );
 };
 
-export default withRouter(Login);
+const LoginWithRouter = withRouter(Login);
+export default LoginWithRouter;

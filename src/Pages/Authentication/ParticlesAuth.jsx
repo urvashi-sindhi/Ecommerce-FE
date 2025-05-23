@@ -27,4 +27,5 @@ const ParticlesAuth = ({ children }) => {
   );
 };
 
-export default withRouter(ParticlesAuth);
+const ParticlesAuthWithRouter = withRouter(ParticlesAuth);
+export default ParticlesAuthWithRouter;

@@ -1,33 +1,14 @@
 import React, { useEffect, useState } from "react";
-import {
-  Offcanvas,
-  OffcanvasHeader,
-  OffcanvasBody,
-  Collapse,
-} from "reactstrap";
 import withRouter from "./withRouter";
 
-//redux
-import {
-  changeSidebarTheme,
-  // resetValue
-} from "../../slices/thunks";
-
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 //import Constant
 
 import { createSelector } from "reselect";
 
 const RightSidebar = (props) => {
-  const dispatch = useDispatch();
-
-  const [show, setShow] = useState(false);
-
-  function tog_show() {
-    setShow(!show);
-    dispatch(changeSidebarTheme("gradient"));
-  }
+  const [show] = useState(false);
 
   useEffect(() => {
     if (
@@ -59,12 +40,6 @@ const RightSidebar = (props) => {
   );
   // Inside your component
   const { preloader } = useSelector(selectLayoutProperties);
-
-  // open offcanvas
-  const [open, setOpen] = useState(true);
-  const toggleLeftCanvas = () => {
-    setOpen(!open);
-  };
 
   window.onscroll = function () {
     scrollFunction();
@@ -129,4 +104,5 @@ const RightSidebar = (props) => {
   );
 };
 
-export default withRouter(RightSidebar);
+const RightSidebarWithRouter = withRouter(RightSidebar);
+export default RightSidebarWithRouter;

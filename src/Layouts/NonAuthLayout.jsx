@@ -28,4 +28,5 @@ const NonAuthLayout = ({ children }) => {
   return <div>{children}</div>;
 };
 
-export default withRouter(NonAuthLayout);
+const NonAuthLayoutWithRouter = withRouter(NonAuthLayout);
+export default NonAuthLayoutWithRouter;
