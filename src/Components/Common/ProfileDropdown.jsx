@@ -1,23 +1,54 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Dropdown,
   DropdownItem,
   DropdownMenu,
   DropdownToggle,
 } from "reactstrap";
+import { LOGIN } from "../../Api/ApiRoutes";
+import BaseModal from "../Base/BaseModal";
 
-//import images
 import avatar1 from "../../assets/images/users/user-dummy-img.jpg";
 
 const ProfileDropdown = () => {
-  const [userName] = useState("Admin");
+  const navigate = useNavigate();
+  const [userData, setUserData] = useState({
+    name: "",
+    role: "",
+    email: "",
+  });
 
-  //Dropdown Toggle
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user") || "{}");
+    setUserData({
+      name: user.email || "User",
+      role: user.role || "User",
+      email: user.email || "",
+    });
+  }, []);
+
   const [isProfileDropdown, setIsProfileDropdown] = useState(false);
   const toggleProfileDropdown = () => {
     setIsProfileDropdown(!isProfileDropdown);
   };
+
+  const openLogoutModal = () => {
+    setIsProfileDropdown(false);
+    setIsLogoutModalOpen(true);
+  };
+
+  const closeLogoutModal = () => {
+    setIsLogoutModalOpen(false);
+  };
+
+  const handleConfirmLogout = () => {
+    localStorage.clear();
+    navigate(LOGIN);
+  };
+
   return (
     <React.Fragment>
       <Dropdown
@@ -34,74 +65,43 @@ const ProfileDropdown = () => {
             />
             <span className="text-start ms-xl-2">
               <span className="d-none d-xl-inline-block ms-1 fw-medium user-name-text">
-                {userName}
+                {userData.name}
               </span>
               <span className="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">
-                Founder
+                {userData.role}
               </span>
             </span>
           </span>
         </DropdownToggle>
         <DropdownMenu className="dropdown-menu-end">
-          <h6 className="dropdown-header">Welcome {userName}!</h6>
-          <DropdownItem className="p-0">
-            <Link to="/profile" className="dropdown-item">
-              <i className="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i>
-              <span className="align-middle">Profile</span>
-            </Link>
-          </DropdownItem>
-          <DropdownItem className="p-0">
-            <Link to="/apps-chat" className="dropdown-item">
-              <i className="mdi mdi-message-text-outline text-muted fs-16 align-middle me-1"></i>{" "}
-              <span className="align-middle">Messages</span>
-            </Link>
-          </DropdownItem>
-          <DropdownItem className="p-0">
-            <Link to="#" className="dropdown-item">
-              <i className="mdi mdi-calendar-check-outline text-muted fs-16 align-middle me-1"></i>{" "}
-              <span className="align-middle">Taskboard</span>
-            </Link>
-          </DropdownItem>
-          <DropdownItem className="p-0">
-            <Link to="/pages-faqs" className="dropdown-item">
-              <i className="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"></i>{" "}
-              <span className="align-middle">Help</span>
-            </Link>
-          </DropdownItem>
+          <h6 className="dropdown-header">Welcome {userData.name}!</h6>
           <div className="dropdown-divider"></div>
-          <DropdownItem className="p-0">
-            <Link to="/pages-profile" className="dropdown-item">
-              <i className="mdi mdi-wallet text-muted fs-16 align-middle me-1"></i>{" "}
-              <span className="align-middle">
-                Balance : <b>$5971.67</b>
-              </span>
-            </Link>
-          </DropdownItem>
-          <DropdownItem className="p-0">
-            <Link to="/pages-profile-settings" className="dropdown-item">
-              <span className="badge bg-success-subtle text-success mt-1 float-end">
-                New
-              </span>
-              <i className="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>{" "}
-              <span className="align-middle">Settings</span>
-            </Link>
-          </DropdownItem>
-          <DropdownItem className="p-0">
-            <Link to="/auth-lockscreen-basic" className="dropdown-item">
-              <i className="mdi mdi-lock text-muted fs-16 align-middle me-1"></i>{" "}
-              <span className="align-middle">Lock screen</span>
-            </Link>
-          </DropdownItem>
-          <DropdownItem className="p-0">
-            <Link to="/logout" className="dropdown-item">
-              <i className="mdi mdi-logout text-muted fs-16 align-middle me-1"></i>{" "}
-              <span className="align-middle" data-key="t-logout">
-                Logout
-              </span>
-            </Link>
+          <DropdownItem
+            className="dropdown-item"
+            onClick={openLogoutModal}
+            style={{ cursor: "pointer" }}
+          >
+            <i className="mdi mdi-logout text-muted fs-16 align-middle me-1"></i>
+            <span className="align-middle" data-key="t-logout">
+              Logout
+            </span>
           </DropdownItem>
         </DropdownMenu>
       </Dropdown>
+
+      <BaseModal
+        isOpen={isLogoutModalOpen}
+        toggle={closeLogoutModal}
+        title="Logout"
+        onConfirm={handleConfirmLogout}
+        confirmButtonLabel="Yes"
+        cancelButtonLabel="No"
+        confirmButtonColor="success"
+        cancelButtonColor="primary"
+        size="sm"
+      >
+        Are you sure you want to log out?
+      </BaseModal>
     </React.Fragment>
   );
 };
