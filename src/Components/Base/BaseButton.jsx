@@ -1,6 +1,5 @@
 import React from "react";
 import { Button } from "reactstrap";
-import Loader from "./BaseLoader";
 import BaseLoader from "./BaseLoader";
 
 const BaseButton = ({
