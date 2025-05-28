@@ -6,7 +6,7 @@ import {
   DropdownMenu,
   DropdownToggle,
 } from "reactstrap";
-import { LOGIN } from "../../Api/ApiRoutes";
+import { LOGIN } from "../../Routes/common";
 import BaseModal from "../Base/BaseModal";
 
 import avatar1 from "../../assets/images/users/user-dummy-img.jpg";
