@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Spinner } from "reactstrap";
+import { Button } from "reactstrap";
+import Loader from "./BaseLoader";
 
 const BaseButton = ({
   color = "primary",
@@ -23,7 +24,7 @@ const BaseButton = ({
       className={className}
       size={size}
     >
-      {loader && <Spinner size="sm" className="me-2" />}
+      {loader && <Loader size="sm" className="me-2" />}
       {startIcon && <span className="me-2">{startIcon}</span>}
       {loader ? loader : label || children}
       {endIcon && <span className="ms-2">{endIcon}</span>}
