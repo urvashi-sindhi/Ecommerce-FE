@@ -24,7 +24,7 @@ const BaseButton = ({
       className={className}
       size={size}
     >
-      {loader && <Loader size="sm" className="me-2" />}
+      {loader && <BaseLoader size="sm" className="me-2" />}
       {startIcon && <span className="me-2">{startIcon}</span>}
       {loader ? loader : label || children}
       {endIcon && <span className="ms-2">{endIcon}</span>}
