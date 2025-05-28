@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import {
   FormFeedback,
   Input,
@@ -144,33 +143,5 @@ const BaseInput = ({
   );
 };
 
-BaseInput.propTypes = {
-  autoComplete: PropTypes.string,
-  className: PropTypes.string,
-  defaultValue: PropTypes.any,
-  disabled: PropTypes.bool,
-  error: PropTypes.any,
-  fullWidth: PropTypes.bool,
-  label: PropTypes.string,
-  name: PropTypes.string,
-  onChange: PropTypes.func,
-  placeholder: PropTypes.string,
-  readOnly: PropTypes.bool,
-  required: PropTypes.bool,
-  type: PropTypes.string,
-  accept: PropTypes.string,
-  value: PropTypes.any,
-  prepend: PropTypes.any,
-  append: PropTypes.any,
-  tooltip: PropTypes.any,
-  tooltipIcon: PropTypes.string,
-  tooltipIconColor: PropTypes.string,
-  tooltipText: PropTypes.string,
-  handleBlur: PropTypes.func,
-  onBlur: PropTypes.func,
-  touched: PropTypes.any,
-  maxLength: PropTypes.number,
-  invalid: PropTypes.bool,
-};
 
 export default BaseInput;
