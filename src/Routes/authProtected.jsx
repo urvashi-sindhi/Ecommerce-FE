@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Navigate, Route } from "react-router-dom";
 import { setAuthorization } from "../helpers/api_helper";
-import { LOGIN } from "./commonRoutes";
+import { LOGIN } from "./apiRoutes";
 
 const AuthProtected = (props) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);

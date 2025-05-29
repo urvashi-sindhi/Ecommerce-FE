@@ -31,7 +31,7 @@ import { loginLabels } from "../../Components/constants/common";
 import { toast } from "react-toastify";
 import BaseInput from "../../Components/Base/BaseInput";
 import BaseButton from "../../Components/Base/BaseButton";
-import { LOGIN } from "../../Routes/commonRoutes";
+import { LOGIN } from "../../Routes/apiRoutes";
 
 const ForgetPasswordPage = withRouter(() => {
   const navigate = useNavigate();
