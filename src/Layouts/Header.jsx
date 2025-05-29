@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import logoSm from "../assets/images/logo-sm.png";
 import logoDark from "../assets/images/logo-dark.png";
 import logoLight from "../assets/images/logo-light.png";
+import ProfileDropdown from "../Components/Common/ProfileDropdown";
 
 //import Components
 
@@ -89,6 +90,9 @@ const Header = ({ headerClass }) => {
                   <span></span>
                 </span>
               </button>
+            </div>
+            <div className="d-flex align-items-center">
+              <ProfileDropdown />
             </div>
           </div>
         </div>

@@ -1,44 +1,83 @@
 import React, { useState } from "react";
-import {
-  Card,
-  CardBody,
-  Col,
-  Container,
-  Input,
-  Label,
-  Row,
-  Button,
-  Form,
-} from "reactstrap";
-
-import { FaEye } from "react-icons/fa";
-
+import { Card, CardBody, Col, Container, Row, Form } from "reactstrap";
+import { login } from "../../Api/LoginApi";
+import { jwtDecode } from "jwt-decode";
 import { Link, useNavigate } from "react-router-dom";
 import withRouter from "../../Components/Common/withRouter";
-
 import * as Yup from "yup";
 import { useFormik } from "formik";
-
 import logoLight from "../../assets/images/logo-light.png";
 import ParticlesAuth from "./ParticlesAuth";
+import { toast } from "react-toastify";
+import BaseInput from "../../Components/Base/BaseInput";
+import BaseButton from "../../Components/Base/BaseButton";
+import { loginLabels } from "../../Components/constants/common";
+import {
+  emailRegex,
+  InputPlaceHolder,
+  validationMessages,
+} from "../../Components/constants/validation";
+import { DASHBOARD } from "../../Api/ApiRoutes";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [passwordShow, setPasswordShow] = useState(false);
+  const [loader, setLoader] = useState(false);
 
   const validation = useFormik({
     enableReinitialize: true,
-
     initialValues: {
-      email: "admin@themesbrand.com",
-      password: "123456",
+      email: "",
+      password: "",
     },
     validationSchema: Yup.object({
-      email: Yup.string().required("Please Enter Your Email"),
-      password: Yup.string().required("Please Enter Your Password"),
+      email: Yup.string()
+        .required(validationMessages.required(loginLabels.Email))
+        .matches(emailRegex, validationMessages.format(loginLabels.Email)),
+      password: Yup.string().required(
+        validationMessages.required(loginLabels.Password)
+      ),
     }),
-    onSubmit: () => {
-      navigate("/dashboard");
+    onSubmit: async (values) => {
+      setLoader(true);
+      const payload = {
+        email: values.email,
+        password: values.password,
+      };
+
+      await login(payload)
+        .then(async (res) => {
+          if (res?.statusCode) {
+            const token = res?.data?.token;
+            const decodedToken = jwtDecode(token);
+            const email = decodedToken.email;
+            const role = decodedToken.role;
+            const id = decodedToken.id;
+            const authUser = {
+              id,
+              email,
+              role,
+              token,
+            };
+
+            localStorage.setItem("user", JSON.stringify(authUser));
+            localStorage.setItem("token", token);
+            localStorage.setItem("email", email);
+            localStorage.setItem("role", role);
+            localStorage.setItem("id", id);
+
+            navigate(DASHBOARD);
+            toast.success(res?.message);
+          } else {
+            toast.error(res?.message[0]);
+          }
+        })
+        .catch((error) => {
+          const errorMessage = Array.isArray(error?.response?.data?.message)
+            ? error?.response?.data?.message[0]
+            : error?.response?.data?.message;
+          toast.error(errorMessage || error?.message);
+        })
+        .finally(() => setLoader(false));
     },
   });
 
@@ -81,26 +120,19 @@ const Login = () => {
                           validation.handleSubmit();
                           return false;
                         }}
-                        action="#"
                       >
                         <div className="mb-3">
-                          <Label htmlFor="email" className="form-label">
-                            Email
-                          </Label>
-                          <Input
-                            name="email"
-                            className="form-control"
-                            placeholder="Enter email"
-                            type="email"
+                          <BaseInput
+                            name={loginLabels.email}
+                            label={loginLabels.Email}
+                            type={loginLabels.email}
+                            placeholder={InputPlaceHolder(loginLabels.Email)}
                             onChange={validation.handleChange}
                             onBlur={validation.handleBlur}
-                            value={validation.values.email || ""}
-                            invalid={
-                              validation.touched.email &&
-                              validation.errors.email
-                                ? true
-                                : false
-                            }
+                            value={validation.values.email}
+                            error={validation.errors.email}
+                            touched={validation.touched.email}
+                            required
                           />
                         </div>
 
@@ -110,46 +142,28 @@ const Login = () => {
                               Forgot password?
                             </Link>
                           </div>
-                          <Label
-                            className="form-label"
-                            htmlFor="password-input"
-                          >
-                            Password
-                          </Label>
-                          <div className="position-relative auth-pass-inputgroup mb-3">
-                            <Input
-                              name="password"
-                              value={validation.values.password || ""}
-                              type={passwordShow ? "text" : "password"}
-                              className="form-control pe-5"
-                              placeholder="Enter Password"
-                              onChange={validation.handleChange}
-                              onBlur={validation.handleBlur}
-                              invalid={
-                                validation.touched.password &&
-                                validation.errors.password
-                                  ? true
-                                  : false
-                              }
-                            />
-                            <button
-                              className="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted"
-                              type="button"
-                              onClick={() => setPasswordShow(!passwordShow)}
-                            >
-                              {passwordShow ? <FaEye /> : <FaEye />}
-                            </button>
-                          </div>
+                          <BaseInput
+                            name={loginLabels.password}
+                            label={loginLabels.Password}
+                            type={loginLabels.password}
+                            placeholder={InputPlaceHolder(loginLabels.Password)}
+                            onChange={validation.handleChange}
+                            onBlur={validation.handleBlur}
+                            value={validation.values.password}
+                            error={validation.errors.password}
+                            touched={validation.touched.password}
+                            required
+                          />
                         </div>
 
                         <div className="mt-4">
-                          <Button
+                          <BaseButton
                             color="success"
-                            className="btn btn-success w-100"
+                            className="w-100"
                             type="submit"
-                          >
-                            Sign In
-                          </Button>
+                            loader={loader}
+                            label="Sign In"
+                          />
                         </div>
                       </Form>
                     </div>
