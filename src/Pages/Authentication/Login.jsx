@@ -75,7 +75,7 @@ const Login = () => {
           const errorMessage = Array.isArray(error?.response?.data?.message)
             ? error?.response?.data?.message[0]
             : error?.response?.data?.message;
-          toast.error(errorMessage || error?.message);
+          toast.error(errorMessage ?? error?.message);
         })
         .finally(() => setLoader(false));
     },
