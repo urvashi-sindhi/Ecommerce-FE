@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, CardBody, Col, Container, Row, Form } from "reactstrap";
-import { login } from "../../Api/UserApi";
+import { login } from "../../Api/LoginApi";
 import { jwtDecode } from "jwt-decode";
 import { Link, useNavigate } from "react-router-dom";
 import withRouter from "../../Components/Common/withRouter";

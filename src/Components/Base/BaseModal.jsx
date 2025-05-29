@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
 
 const BaseModal = ({
@@ -42,22 +41,6 @@ const BaseModal = ({
       )}
     </Modal>
   );
-};
-
-BaseModal.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  toggle: PropTypes.func.isRequired,
-  title: PropTypes.string,
-  children: PropTypes.node,
-  footerContent: PropTypes.node,
-  confirmButtonLabel: PropTypes.string,
-  cancelButtonLabel: PropTypes.string,
-  onConfirm: PropTypes.func,
-  confirmButtonColor: PropTypes.string,
-  isConfirmDisabled: PropTypes.bool,
-  hideFooter: PropTypes.bool,
-  size: PropTypes.string,
-  cancelButtonColor: PropTypes.string,
 };
 
 export default BaseModal;
