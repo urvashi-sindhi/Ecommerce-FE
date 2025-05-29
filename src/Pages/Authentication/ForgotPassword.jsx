@@ -18,7 +18,7 @@ import { RiMailSendLine } from "react-icons/ri";
 // import images
 import logoLight from "../../assets/images/logo-light.png";
 import ParticlesAuth from "./ParticlesAuth";
-import { forgotPassword, verifyEmail } from "../../Api/UserApi";
+import { forgotPassword, verifyEmail } from "../../Api/LoginApi";
 import {
   emailRegex,
   InputPlaceHolder,
@@ -105,10 +105,7 @@ const ForgetPasswordPage = withRouter(() => {
             toast.error(res?.message[0]);
           }
         } catch (error) {
-          const errorMessage = Array.isArray(error?.response?.data?.message)
-            ? error?.response?.data?.message[0]
-            : error?.response?.data?.message;
-          toast.error(errorMessage || error?.message);
+          toast.error(error?.response?.data?.message || error?.message);
         } finally {
           setLoader(false);
         }
@@ -128,10 +125,7 @@ const ForgetPasswordPage = withRouter(() => {
             toast.error(res.message);
           }
         } catch (error) {
-          const errorMessage = Array.isArray(error?.response?.data?.message)
-            ? error?.response?.data?.message[0]
-            : error?.response?.data?.message;
-          toast.error(errorMessage || error?.message);
+          toast.error(error?.response?.data?.message || error?.message);
         } finally {
           setLoader(false);
         }
@@ -168,7 +162,7 @@ const ForgetPasswordPage = withRouter(() => {
                     <p className="text-muted">Reset your password</p>
                     <RiMailSendLine
                       className="avatar-xl text-primary"
-                      style={{ width: "50px", height: "80px" }}
+                      size={50}
                     />
                   </div>
                   <Form
