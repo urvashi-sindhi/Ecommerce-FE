@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Dropdown,
   DropdownItem,
@@ -75,6 +75,12 @@ const ProfileDropdown = () => {
         </DropdownToggle>
         <DropdownMenu className="dropdown-menu-end">
           <h6 className="dropdown-header">Welcome {userData.name}!</h6>
+          <DropdownItem className="p-0">
+            <Link to="/profile" className="dropdown-item">
+              <i className="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i>
+              <span className="align-middle">Profile</span>
+            </Link>
+          </DropdownItem>
           <div className="dropdown-divider"></div>
           <DropdownItem
             className="dropdown-item"

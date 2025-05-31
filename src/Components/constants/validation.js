@@ -32,3 +32,4 @@ export const passwordRegex =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/;
 export const otpRegex = /^\d{6}$/;
 export const otpTypeRegex = /^\d{0,6}$/;
+export const numberRegex = /^\d{10}$/;

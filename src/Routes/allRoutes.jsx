@@ -4,7 +4,8 @@ import { Navigate } from "react-router-dom";
 import Login from "../Pages/Authentication/Login";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import ForgetPasswordPage from "../Pages/Authentication/ForgotPassword";
-import { DASHBOARD, FORGOT_PASSWORD, LOGIN } from "./apiRoutes";
+import { DASHBOARD, FORGOT_PASSWORD, LOGIN, PROFILE } from "./apiRoutes";
+import UserProfile from "../Pages/Authentication/UserProfile";
 
 const authProtectedRoutes = [
   { path: DASHBOARD, component: <Dashboard /> },
@@ -15,6 +16,7 @@ const authProtectedRoutes = [
     component: <Navigate to={LOGIN} />,
   },
   { path: "*", component: <Navigate to={DASHBOARD} /> },
+  { path: PROFILE, component: <UserProfile /> },
 ];
 
 const publicRoutes = [
