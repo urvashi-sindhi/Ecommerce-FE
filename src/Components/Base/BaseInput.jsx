@@ -58,6 +58,9 @@ const BaseInput = ({
     if (type === "email" && event.code === "Space") {
       event.preventDefault();
     }
+    if (type === "password" && event.code === "Space") {
+      event.preventDefault();
+    }
     if (
       type === "number" &&
       !allowedKeys.includes(event.key) &&
@@ -142,6 +145,5 @@ const BaseInput = ({
     </div>
   );
 };
-
 
 export default BaseInput;

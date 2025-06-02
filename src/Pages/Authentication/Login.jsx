@@ -81,7 +81,7 @@ const Login = () => {
     },
   });
 
-  document.title = "Basic SignIn | Velzon - React Admin & Dashboard Template";
+  document.title = "Login";
   return (
     <>
       <ParticlesAuth>
@@ -108,9 +108,6 @@ const Login = () => {
                   <CardBody className="p-4">
                     <div className="text-center mt-2">
                       <h5 className="text-primary">Welcome Back !</h5>
-                      <p className="text-muted">
-                        Sign in to continue to Velzon.
-                      </p>
                     </div>
 
                     <div className="p-2 mt-4">
@@ -169,18 +166,6 @@ const Login = () => {
                     </div>
                   </CardBody>
                 </Card>
-
-                <div className="mt-4 text-center">
-                  <p className="mb-0">
-                    Don't have an account ?
-                    <Link
-                      to="/register"
-                      className="fw-semibold text-primary text-decoration-underline"
-                    >
-                      Signup
-                    </Link>
-                  </p>
-                </div>
               </Col>
             </Row>
           </Container>
