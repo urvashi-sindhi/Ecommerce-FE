@@ -64,18 +64,18 @@ const ForgetPasswordPage = withRouter(() => {
             newPassword: Yup.string()
               .min(
                 8,
-                validationMessages.passwordLength(loginLabels.newPassword, 8)
+                validationMessages.passwordLength(loginLabels.Password, 8)
               )
               .matches(
                 passwordRegex,
-                validationMessages.passwordComplexity(loginLabels.newPassword)
+                validationMessages.passwordComplexity(loginLabels.Password)
               )
-              .required(validationMessages.required(loginLabels.newPassword)),
+              .required(validationMessages.required(loginLabels.Password)),
             confirmPassword: Yup.string()
               .oneOf(
                 [Yup.ref(loginLabels.NewPassword), ""],
                 validationMessages.passwordsMatch(
-                  loginLabels.newPassword,
+                  loginLabels.Password,
                   loginLabels.confirmPassword
                 )
               )
@@ -133,7 +133,7 @@ const ForgetPasswordPage = withRouter(() => {
     },
   });
 
-  document.title = "Reset Password";
+  document.title = "Forgot Password";
   return (
     <ParticlesAuth>
       <div className="auth-page-content mt-lg-5">
@@ -159,7 +159,6 @@ const ForgetPasswordPage = withRouter(() => {
                 <CardBody className="p-4">
                   <div className="text-center mt-2">
                     <h5 className="text-primary">Forgot Password?</h5>
-                    <p className="text-muted">Reset your password</p>
                     <RiMailSendLine
                       className="avatar-xl text-primary"
                       size={50}
@@ -214,11 +213,9 @@ const ForgetPasswordPage = withRouter(() => {
                         <div className="mb-3">
                           <BaseInput
                             name={loginLabels.NewPassword}
-                            label={loginLabels.newPassword}
+                            label={loginLabels.Password}
                             type={loginLabels.password}
-                            placeholder={InputPlaceHolder(
-                              loginLabels.newPassword
-                            )}
+                            placeholder={InputPlaceHolder(loginLabels.Password)}
                             onChange={validation.handleChange}
                             onBlur={validation.handleBlur}
                             value={validation.values.newPassword}

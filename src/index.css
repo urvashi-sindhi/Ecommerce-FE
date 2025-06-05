@@ -130,4 +130,9 @@ button:focus-visible {
 
 .hidden-file-input {
   display: none !important;
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.774) inset !important;
+    box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.774) inset !important;
+    -webkit-text-fill-color: #000 !important;
+  }
 }
