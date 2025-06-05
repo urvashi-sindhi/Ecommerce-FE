@@ -35,7 +35,6 @@ const BaseInput = ({
   maxLength,
   invalid,
   onBlur,
-  children,
   ref,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -85,46 +84,6 @@ const BaseInput = ({
   };
 
   const isInvalid = invalid || (error && touched);
-
-  if (type === "select") {
-    return (
-      <div className={`text-start ${fullWidth ? "w-100" : ""}`}>
-        {label && (
-          <>
-            <Label htmlFor={name} className="form-label">
-              {label}
-              {required && <span className="text-danger">*</span>}
-            </Label>
-            {tooltip && (
-              <i
-                className={`mdi mdi-${tooltipIcon} ms-1 text-${tooltipIconColor} cursor-pointer tooltip-container`}
-              >
-                <span className="tooltip-text bottom-5 mt-4">
-                  {tooltipText}
-                </span>
-              </i>
-            )}
-          </>
-        )}
-        <Input
-          id={name}
-          name={name}
-          type={type}
-          className={`${className} shadow-none`}
-          disabled={disabled}
-          invalid={isInvalid}
-          placeholder={placeholder}
-          value={value}
-          onChange={onChange}
-          onBlur={onBlur || handleBlur}
-          ref={ref}
-        >
-          {children}
-        </Input>
-        {isInvalid && <div className="invalid-feedback d-block">{error}</div>}
-      </div>
-    );
-  }
 
   return (
     <div className={`text-start ${fullWidth ? "w-100" : ""}`}>

@@ -16,6 +16,8 @@ export const loginLabels = {
 };
 
 export const userProfileLabels = {
+  file: "file",
+  text: "text",
   Name: "Name",
   name: "name",
   PhoneNo: "Phone no",
@@ -24,6 +26,10 @@ export const userProfileLabels = {
   email: "email",
   Gender: "Gender",
   gender: "gender",
+  Male: "Male",
+  male: "male",
+  Female: "Female",
+  female: "female",
   Country: "Country",
   country_id: "country_id",
   State: "State",

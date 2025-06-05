@@ -33,3 +33,5 @@ export const passwordRegex =
 export const otpRegex = /^\d{6}$/;
 export const otpTypeRegex = /^\d{0,6}$/;
 export const numberRegex = /^\d{10}$/;
+export const imageValidation = "Please upload an image file";
+export const imageSizeValidation = "Image size should be less than 5MB";
