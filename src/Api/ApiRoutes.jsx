@@ -8,3 +8,4 @@ export const LIST_OF_STATE = "listOfState/";
 export const LIST_OF_CITY = "listOfCity/";
 export const UPDATE_PROFILE = "updateProfile";
 export const FILE_UPLOAD = "fileUpload";
+export const CHANGE_PASSWORD = "user/changePassword";
