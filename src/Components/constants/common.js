@@ -13,6 +13,8 @@ export const loginLabels = {
   forgotPasswordLabel: "Forgot password",
   OTP: "Otp",
   otp: "otp",
+  currentPassword: "currentPassword",
+  CurrentPassword: "Current Password",
 };
 
 export const userProfileLabels = {
