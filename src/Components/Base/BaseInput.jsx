@@ -35,6 +35,7 @@ const BaseInput = ({
   maxLength,
   invalid,
   onBlur,
+  ref,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -120,6 +121,7 @@ const BaseInput = ({
           readOnly={readOnly}
           onBlur={onBlur || handleBlur}
           maxLength={type !== "number" ? maxLength : undefined}
+          ref={ref}
           type={
             type === "password" ? (showPassword ? "text" : "password") : type
           }

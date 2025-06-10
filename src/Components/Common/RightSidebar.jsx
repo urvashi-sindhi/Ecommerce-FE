@@ -59,11 +59,6 @@ const RightSidebar = (props) => {
     }
   };
 
-  const toTop = () => {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  };
-
   const pathName = props.router.location.pathname;
 
   useEffect(() => {
@@ -80,14 +75,6 @@ const RightSidebar = (props) => {
 
   return (
     <React.Fragment>
-      <button
-        onClick={() => toTop()}
-        className="btn btn-danger btn-icon"
-        id="back-to-top"
-      >
-        <i className="ri-arrow-up-line"></i>
-      </button>
-
       {preloader === "enable" && (
         <div id="preloader">
           <div id="status">
