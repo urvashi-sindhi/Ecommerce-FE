@@ -136,3 +136,17 @@ button:focus-visible {
     -webkit-text-fill-color: #000 !important;
   }
 }
+
+.search-input-max-width {
+  max-width: 250px;
+}
+
+.category-image-preview {
+  max-width: 120px;
+  max-height: 120px;
+  border-radius: 8px;
+}
+
+.cursor-default-arrow {
+  cursor: default;
+}

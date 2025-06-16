@@ -4,8 +4,17 @@ import { Navigate } from "react-router-dom";
 import Login from "../Pages/Authentication/Login";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import ForgetPasswordPage from "../Pages/Authentication/ForgotPassword";
-import { DASHBOARD, FORGOT_PASSWORD, LOGIN, PROFILE } from "./apiRoutes";
+import {
+  CATEGORY,
+  CHANGE_PASSWORD,
+  DASHBOARD,
+  FORGOT_PASSWORD,
+  LOGIN,
+  PROFILE,
+} from "./apiRoutes";
 import UserProfile from "../Pages/Authentication/UserProfile";
+import ChangePassword from "../Pages/Authentication/ChangePassword";
+import Categories from "../Pages/Category/Categories";
 
 const authProtectedRoutes = [
   { path: DASHBOARD, component: <Dashboard /> },
@@ -17,6 +26,8 @@ const authProtectedRoutes = [
   },
   { path: "*", component: <Navigate to={DASHBOARD} /> },
   { path: PROFILE, component: <UserProfile /> },
+  { path: CHANGE_PASSWORD, component: <ChangePassword /> },
+  { path: CATEGORY, component: <Categories /> },
 ];
 
 const publicRoutes = [
