@@ -60,3 +60,39 @@ export const userProfileLabels = {
   Other: "Other",
   Profile: "Profile",
 };
+
+export const categoryLabels = {
+  PageTitle: "Categories",
+
+  NewButton: "+ New",
+  CancelButton: "Cancel",
+  AddCategoryButton: "Add Category",
+  SaveChangesButton: "Save Changes",
+  YesButton: "Yes",
+
+  ItemsPerPageLabel: "Items per page:",
+  CategoryName: "Category Name",
+  DescriptionLabel: "Description",
+  CategoryImageLabel: "Category Image",
+  DateLabel: "Date",
+
+  category_name: "category_name",
+  description: "description",
+  category_image: "category_image",
+  pageSize: "pageSize",
+  search: "search",
+  created_at: "created_at",
+
+  AddCategoryModalTitle: "Add Category",
+  EditCategoryModalTitle: "Edit Category",
+  DeleteCategoryModalTitle: "Delete Category",
+
+  SelectPlaceholder: "Select",
+  SearchPlaceholder: "Search",
+  UploadingImageMessage: "Uploading image...",
+  FailedToFetchCategoryDataMessage: "Failed to fetch category data",
+  DeleteMessage: "Are you sure you want to delete this category?",
+  AddingMessage: "Adding...",
+  SavingMessage: "Saving...",
+  DeletingMessage: "Deleting...",
+};
