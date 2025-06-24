@@ -1,5 +1,6 @@
 import {
   ADD_CATEGORIES,
+  CATEGORY_DROPDOWN,
   DELETE_CATEGORIES,
   EDIT_CATEGORIES,
   LIST_OF_CATEGORIES,
@@ -29,5 +30,10 @@ export const viewCategory = async (id) => {
 
 export const deleteCategory = async (id) => {
   const response = await authData.delete(`${DELETE_CATEGORIES}${id}`, id);
+  return response?.data;
+};
+
+export const getCategoryDropdown = async (data) => {
+  const response = await authData.get(CATEGORY_DROPDOWN, data);
   return response?.data;
 };

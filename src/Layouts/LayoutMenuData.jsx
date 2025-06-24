@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaTachometerAlt, FaTags } from "react-icons/fa";
+import { MdStorefront } from "react-icons/md";
 
 const Navdata = () => {
   const history = useNavigate();
   //state data
   const [isDashboard, setIsDashboard] = useState(false);
   const [isCategory, setIsCategory] = useState(false);
+  const [isProduct, setIsProduct] = useState(false);
   const [isCurrentState, setIsCurrentState] = useState("Dashboard");
 
   function updateIconSidebar(e) {
@@ -56,6 +58,18 @@ const Navdata = () => {
       click: function (e) {
         setIsCategory(!isCategory);
         setIsCurrentState("Categories");
+        updateIconSidebar(e);
+      },
+    },
+    {
+      id: "product",
+      label: "Products",
+      icon: MdStorefront,
+      link: "/product",
+      stateVariables: isProduct,
+      click: function (e) {
+        setIsProduct(!isProduct);
+        setIsCurrentState("Products");
         updateIconSidebar(e);
       },
     },

@@ -4,3 +4,6 @@ export const FORGOT_PASSWORD = "/forgot-password";
 export const PROFILE = "/profile";
 export const CHANGE_PASSWORD = "/change-password";
 export const CATEGORY = "/category";
+export const PRODUCT = "/product";
+export const ADD_PRODUCT = "/product/add";
+export const EDIT_PRODUCT = "/product/edit";

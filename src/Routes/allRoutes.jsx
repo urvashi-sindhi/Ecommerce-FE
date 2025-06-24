@@ -5,16 +5,23 @@ import Login from "../Pages/Authentication/Login";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import ForgetPasswordPage from "../Pages/Authentication/ForgotPassword";
 import {
+  ADD_PRODUCT,
   CATEGORY,
   CHANGE_PASSWORD,
   DASHBOARD,
+  EDIT_PRODUCT,
   FORGOT_PASSWORD,
   LOGIN,
+  PRODUCT,
   PROFILE,
 } from "./apiRoutes";
 import UserProfile from "../Pages/Authentication/UserProfile";
 import ChangePassword from "../Pages/Authentication/ChangePassword";
 import Categories from "../Pages/Category/Categories";
+import Products from "../Pages/Product/index";
+import AddProduct from "../Pages/Product/addProduct";
+import EditProduct from "../Pages/Product/editProduct";
+import ViewProduct from "../Pages/Product/viewProduct";
 
 const authProtectedRoutes = [
   { path: DASHBOARD, component: <Dashboard /> },
@@ -28,6 +35,10 @@ const authProtectedRoutes = [
   { path: PROFILE, component: <UserProfile /> },
   { path: CHANGE_PASSWORD, component: <ChangePassword /> },
   { path: CATEGORY, component: <Categories /> },
+  { path: PRODUCT, component: <Products /> },
+  { path: ADD_PRODUCT, component: <AddProduct /> },
+  { path: `${EDIT_PRODUCT}/:id`, component: <EditProduct /> },
+  { path: "/product/view/:id", component: <ViewProduct /> },
 ];
 
 const publicRoutes = [
