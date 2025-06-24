@@ -177,3 +177,17 @@ input:-webkit-autofill {
 .product-variant-no-image {
   height: 150px;
 }
+
+.piechart-card-body {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.piechart-loader-container {
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

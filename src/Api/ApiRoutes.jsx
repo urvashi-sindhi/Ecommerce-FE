@@ -20,3 +20,7 @@ export const DELETE_PRODUCT = "products/deleteProduct/";
 export const ADD_PRODUCT = "products/addProduct";
 export const VIEW_PRODUCT = "products/productViewForAdmin/";
 export const EDIT_PRODUCT = "products/editProduct/";
+export const PRODUCT = "/product";
+export const DASHBOARD_STATISTIC = "dashboard/dashboard-statistic";
+export const DASHBOARD_HIGHEST_PURCHASE = "dashboard/highest-purchase-order";
+export const DASHBOARD_PIE_CHART = "order/piechart-data";
