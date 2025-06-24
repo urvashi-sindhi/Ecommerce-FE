@@ -128,11 +128,52 @@ button:focus-visible {
   z-index: 2;
 }
 
+input,
+textarea {
+  caret-color: black;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.774) inset !important;
+  box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.774) inset !important;
+  -webkit-text-fill-color: #000 !important;
+}
+
 .hidden-file-input {
   display: none !important;
-  input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.774) inset !important;
-    box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.774) inset !important;
-    -webkit-text-fill-color: #000 !important;
-  }
+}
+
+.search-input-max-width {
+  max-width: 250px;
+}
+
+.category-image-preview {
+  max-width: 120px;
+  max-height: 120px;
+  border-radius: 8px;
+}
+
+.cursor-default-arrow {
+  cursor: default;
+}
+
+.back-button {
+  min-width: 40px;
+  padding: 6px 12px;
+}
+
+.variant-image-preview {
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.product-variant-image {
+  max-height: 150px;
+  object-fit: contain;
+}
+
+.product-variant-no-image {
+  height: 150px;
 }

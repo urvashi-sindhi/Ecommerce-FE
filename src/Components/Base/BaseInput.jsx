@@ -89,7 +89,7 @@ const BaseInput = ({
   const isInvalid = invalid || (error && touched);
 
   return (
-    <div className={`text-start ${fullWidth ? "w-100" : ""}`}>
+    <div className={`text-start mb-3 ${fullWidth ? "w-100" : ""}`}>
       {label && (
         <>
           <Label htmlFor={name} className="form-label">

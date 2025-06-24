@@ -8,8 +8,10 @@ import {
 } from "reactstrap";
 import { LOGIN } from "../../Routes/apiRoutes";
 import BaseModal from "../Base/BaseModal";
+import { baseURLForImage } from "../../Api/AuthApi";
 
 import avatar1 from "../../assets/images/users/user-dummy-img.jpg";
+import { viewProfile } from "../../Api/LoginApi";
 
 const ProfileDropdown = () => {
   const navigate = useNavigate();
@@ -17,17 +19,31 @@ const ProfileDropdown = () => {
     name: "",
     role: "",
     email: "",
+    profileImage: "",
   });
 
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
 
+  const fetchUserProfile = async () => {
+    try {
+      const response = await viewProfile();
+      if (response) {
+        setUserData((prevData) => ({
+          ...prevData,
+          name: response.data.name || "User",
+          role: response.data.role || "User",
+          email: response.data.email || "",
+          profileImage:
+            `${baseURLForImage}${response.data.profile_image}` || "",
+        }));
+      }
+    } catch (error) {
+      console.error("Error fetching profile:", error);
+    }
+  };
+
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user") || "{}");
-    setUserData({
-      name: user.email || "User",
-      role: user.role || "User",
-      email: user.email || "",
-    });
+    fetchUserProfile();
   }, []);
 
   const [isProfileDropdown, setIsProfileDropdown] = useState(false);
@@ -60,8 +76,12 @@ const ProfileDropdown = () => {
           <span className="d-flex align-items-center">
             <img
               className="rounded-circle header-profile-user"
-              src={avatar1}
+              src={userData.profileImage || avatar1}
               alt="Header Avatar"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = avatar1;
+              }}
             />
             <span className="text-start ms-xl-2">
               <span className="d-none d-xl-inline-block ms-1 fw-medium user-name-text">
@@ -79,6 +99,12 @@ const ProfileDropdown = () => {
             <Link to="/profile" className="dropdown-item">
               <i className="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i>
               <span className="align-middle">Profile</span>
+            </Link>
+          </DropdownItem>
+          <DropdownItem className="p-0">
+            <Link to="/change-password" className="dropdown-item">
+              <i className="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i>
+              <span className="align-middle">Change Password</span>
             </Link>
           </DropdownItem>
           <div className="dropdown-divider"></div>

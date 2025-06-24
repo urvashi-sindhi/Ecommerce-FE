@@ -13,6 +13,8 @@ export const loginLabels = {
   forgotPasswordLabel: "Forgot password",
   OTP: "Otp",
   otp: "otp",
+  currentPassword: "currentPassword",
+  CurrentPassword: "Current Password",
 };
 
 export const userProfileLabels = {
@@ -57,4 +59,128 @@ export const userProfileLabels = {
   Work: "Work",
   Other: "Other",
   Profile: "Profile",
+};
+
+export const categoryLabels = {
+  PageTitle: "Categories",
+
+  NewButton: "+ New",
+  CancelButton: "Cancel",
+  AddCategoryButton: "Add Category",
+  SaveChangesButton: "Save Changes",
+  YesButton: "Yes",
+
+  ItemsPerPageLabel: "Items per page:",
+  CategoryName: "Category Name",
+  DescriptionLabel: "Description",
+  CategoryImageLabel: "Category Image",
+  DateLabel: "Date",
+
+  category_name: "category_name",
+  description: "description",
+  category_image: "category_image",
+  pageSize: "pageSize",
+  search: "search",
+  created_at: "created_at",
+
+  AddCategoryModalTitle: "Add Category",
+  EditCategoryModalTitle: "Edit Category",
+  DeleteCategoryModalTitle: "Delete Category",
+
+  SelectPlaceholder: "Select",
+  SearchPlaceholder: "Search",
+  UploadingImageMessage: "Uploading image...",
+  FailedToFetchCategoryDataMessage: "Failed to fetch category data",
+  DeleteMessage: "Are you sure you want to delete this category?",
+  AddingMessage: "Adding...",
+  SavingMessage: "Saving...",
+  DeletingMessage: "Deleting...",
+};
+
+export const productLabels = {
+  CategoryId: "category_id",
+  PageTitle: "Products",
+  ListTitle: "Products List",
+  AddTitle: "Add New Product",
+  EditTitle: "Edit Product",
+
+  NewButton: "Add Product",
+  SaveButton: "Save Product",
+  UpdateButton: "Update Product",
+  CancelButton: "Cancel",
+  BackButton: "Back to List",
+  YesButton: "Yes",
+  NoButton: "No",
+
+  ProductName: "Product Name",
+  ProductImage: "Image",
+  CategoryLabel: "Category",
+  VariantsLabel: "Variants",
+  PriceLabel: "Price",
+  StockLabel: "Stock",
+  StatusLabel: "Status",
+  DateLabel: "Date Added",
+  ActionsLabel: "Actions",
+
+  VariantTitle: "Variant Title",
+  product_title_name: "product_title_name",
+  VariantColor: "Color",
+  color: "color",
+  VariantSize: "Size",
+  size: "size",
+  VariantPrice: "Price",
+  price: "price",
+  VariantStock: "Stock",
+  quantity: "quantity",
+  VariantImage: "Variant Image",
+  variant_image: "variant_image",
+  VariantSKU: "SKU",
+
+  NameLabel: "Product Name",
+  name: "name",
+  DescriptionLabel: "Description",
+  description: "description",
+  CategorySelectLabel: "Select Category",
+  MainImageLabel: "Main Product Image",
+  VariantImagesLabel: "Variant Images",
+  StatusActive: "Active",
+  StatusInactive: "Inactive",
+
+  NamePlaceholder: "Enter product name",
+  DescriptionPlaceholder: "Enter product description",
+  SearchPlaceholder: "Search products...",
+  PricePlaceholder: "Enter price",
+  StockPlaceholder: "Enter stock quantity",
+
+  DeleteMessage: "Are you sure you want to delete this product?",
+  DeleteSuccess: "Product deleted successfully",
+  AddSuccess: "Product added successfully",
+  UpdateSuccess: "Product updated successfully",
+  DeletingMessage: "Deleting...",
+  LoadingMessage: "Loading products...",
+  NoProductsMessage: "No products found",
+  NoResultsMessage: "No matching products found",
+
+  NameRequired: "Product name is required",
+  CategoryRequired: "Category is required",
+  PriceRequired: "Price is required",
+  PriceInvalid: "Price must be a valid number",
+  StockInvalid: "Stock must be a valid number",
+
+  ItemsPerPageLabel: "Items per page:",
+  ShowingLabel: "Showing",
+  ToLabel: "to",
+  OfLabel: "of",
+  ResultsLabel: "results",
+
+  DeleteProductModalTitle: "Confirm Product Deletion",
+  AddVariantModalTitle: "Add Product Variant",
+  EditVariantModalTitle: "Edit Product Variant",
+
+  SelectPlaceholder: "Select an option",
+  ImageUploadText: "Upload Image",
+  AddVariantButton: "Add Variant",
+  EditVariantButton: "Edit Variant",
+  RemoveVariantButton: "Remove Variant",
+  DefaultVariantName: "Default Variant",
 };
