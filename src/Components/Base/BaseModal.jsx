@@ -1,5 +1,6 @@
 import React from "react";
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
+import BaseButton from "./BaseButton";
 
 const BaseModal = ({
   isOpen,
@@ -28,13 +29,14 @@ const BaseModal = ({
             </Button>
           )}
           {confirmButtonLabel && (
-            <Button
+            <BaseButton
               color={confirmButtonColor}
               onClick={onConfirm}
+              loader={isConfirmDisabled}
               disabled={isConfirmDisabled}
             >
               {confirmButtonLabel}
-            </Button>
+            </BaseButton>
           )}
           {footerContent}
         </ModalFooter>

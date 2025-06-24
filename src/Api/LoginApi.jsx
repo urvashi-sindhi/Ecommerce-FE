@@ -8,6 +8,7 @@ import {
   VERIFY_EMAIL,
   VIEW_PROFILE,
   FILE_UPLOAD,
+  CHANGE_PASSWORD,
 } from "./ApiRoutes";
 import { authData, fileUploadData } from "./AuthApi";
 
@@ -55,5 +56,10 @@ export const uploadFile = async (file) => {
   const formData = new FormData();
   formData.append("files", file);
   const response = await fileUploadData.post(FILE_UPLOAD, formData);
+  return response?.data;
+};
+
+export const changePassword = async (data) => {
+  const response = await authData.put(CHANGE_PASSWORD, data);
   return response?.data;
 };

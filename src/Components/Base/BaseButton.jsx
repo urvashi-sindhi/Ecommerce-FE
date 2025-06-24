@@ -24,10 +24,15 @@ const BaseButton = ({
       className={className}
       size={size}
     >
-      {loader && <BaseLoader size="sm" className="me-2" />}
-      {startIcon && <span className="me-2">{startIcon}</span>}
-      {loader ? loader : label || children}
-      {endIcon && <span className="ms-2">{endIcon}</span>}
+      {loader ? (
+        <BaseLoader size="sm" className="me-2" />
+      ) : (
+        <>
+          {startIcon && <span className="me-2">{startIcon}</span>}
+          {label || children}
+          {endIcon && <span className="ms-2">{endIcon}</span>}
+        </>
+      )}
     </Button>
   );
 };
