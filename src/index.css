@@ -191,3 +191,30 @@ input:-webkit-autofill {
   justify-content: center;
   align-items: center;
 }
+
+/* VerticalLayout Component Styles */
+.menu-link-clickable {
+  cursor: pointer;
+}
+
+.menu-icon {
+  margin-right: 8px;
+}
+
+.menu-chevron {
+  transition: transform 0.2s;
+}
+
+.menu-chevron-rotated {
+  transform: rotate(90deg);
+}
+
+.menu-chevron-default {
+  transform: rotate(0deg);
+}
+
+/* Add more padding to table cells for better spacing */
+.table td,
+.table th {
+  padding: 1rem 1rem;
+}

@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Navdata from "../LayoutMenuData";
 import { Link } from "react-router-dom";
+import { FiChevronRight } from "react-icons/fi";
 
 const VerticalLayout = () => {
   const navData = Navdata();
   const menuItems = navData.props.children;
+  const [openMenus, setOpenMenus] = useState({});
+
+  const handleToggle = (id) => {
+    setOpenMenus((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
 
   const renderSubItems = (subItems) => (
     <ul className="nav nav-sm flex-column">
@@ -25,6 +31,26 @@ const VerticalLayout = () => {
         item.isHeader ? (
           <li className="menu-title" key={idx}>
             <span>{item.label}</span>
+          </li>
+        ) : item.subItems ? (
+          <li className="nav-item" key={item.id || idx}>
+            <div
+              className="nav-link menu-link d-flex align-items-center justify-content-between menu-link-clickable"
+              onClick={() => handleToggle(item.id)}
+            >
+              <span className="d-flex align-items-center">
+                {item.icon && <item.icon className="menu-icon" />}
+                <span>{item.label}</span>
+              </span>
+              <FiChevronRight
+                className={`menu-chevron ${
+                  openMenus[item.id]
+                    ? "menu-chevron-rotated"
+                    : "menu-chevron-default"
+                }`}
+              />
+            </div>
+            {openMenus[item.id] && renderSubItems(item.subItems)}
           </li>
         ) : (
           <li className="nav-item" key={item.id || idx}>

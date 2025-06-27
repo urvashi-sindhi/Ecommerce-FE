@@ -22,6 +22,8 @@ import Products from "../Pages/Product/index";
 import AddProduct from "../Pages/Product/addProduct";
 import EditProduct from "../Pages/Product/editProduct";
 import ViewProduct from "../Pages/Product/viewProduct";
+import UserReport from "../Pages/Report/UserReport";
+import OrderReport from "../Pages/Report/OrderReport";
 
 const authProtectedRoutes = [
   { path: DASHBOARD, component: <Dashboard /> },
@@ -39,6 +41,8 @@ const authProtectedRoutes = [
   { path: ADD_PRODUCT, component: <AddProduct /> },
   { path: `${EDIT_PRODUCT}/:id`, component: <EditProduct /> },
   { path: "/product/view/:id", component: <ViewProduct /> },
+  { path: "/user-report", component: <UserReport /> },
+  { path: "/report/order", component: <OrderReport /> },
 ];
 
 const publicRoutes = [

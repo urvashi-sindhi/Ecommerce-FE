@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaTachometerAlt, FaTags } from "react-icons/fa";
 import { MdStorefront } from "react-icons/md";
+import { RiFileChartLine } from "react-icons/ri";
 
 const Navdata = () => {
   const history = useNavigate();
@@ -72,6 +73,23 @@ const Navdata = () => {
         setIsCurrentState("Products");
         updateIconSidebar(e);
       },
+    },
+    {
+      id: "report",
+      label: "Report",
+      icon: RiFileChartLine,
+      subItems: [
+        {
+          id: "user-report",
+          label: "User Report",
+          link: "/user-report",
+        },
+        {
+          id: "order-report",
+          label: "Order Report",
+          link: "/report/order",
+        },
+      ],
     },
   ];
   return <React.Fragment>{menuItems}</React.Fragment>;
